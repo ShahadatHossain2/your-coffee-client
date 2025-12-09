@@ -1,7 +1,7 @@
 import React from "react";
 import homeBg from "../../assets/images/more/3.png";
 import ViewCoffee from "../coffee/ViewCoffee";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const Home = () => {
   const coffees = useLoaderData();
@@ -23,6 +23,9 @@ const Home = () => {
           <button className="rancho-regular btn bg-[#E3B577]">
             Learn More
           </button>
+          <Link to="/login" className="rancho-regular btn bg-[#E3B577] ml-2">
+            Login
+          </Link>
         </div>
       </div>
       <div>

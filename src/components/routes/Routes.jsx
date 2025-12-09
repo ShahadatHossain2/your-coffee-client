@@ -4,6 +4,10 @@ import Home from "../home/Home";
 import AddCoffee from "../coffee/AddCoffee";
 import CoffeeDetails from "../coffee/CoffeeDetails";
 import UpdateCoffee from "../coffee/UpdateCoffee";
+import SignIn from "../signIn/SignIn";
+import SignOut from "../signOut/SignOut";
+import Users from "../users/Users";
+import Login from "../signIn/Login";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +35,23 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/coffees/${params.id}`),
         Component: UpdateCoffee,
+      },
+      {
+        path: "/signIn",
+        Component: SignIn,
+      },
+      {
+        path: "/signOut",
+        Component: SignOut,
+      },
+      {
+        path: "/users",
+        loader: () => fetch("http://localhost:5000/users"),
+        Component: Users,
+      },
+      {
+        path: "login",
+        Component: Login,
       },
     ],
   },
