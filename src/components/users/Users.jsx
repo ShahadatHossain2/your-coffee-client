@@ -33,7 +33,7 @@ const Users = () => {
       }
     });
   };
-
+  console.log(users);
   return (
     <div>
       <div className="flex items-center gap-1 my-2 ">

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { use } from "react";
 import homeBg from "../../assets/images/more/3.png";
 import ViewCoffee from "../coffee/ViewCoffee";
 import { Link, useLoaderData } from "react-router";
+import { AuthContext } from "../context/Context";
 
 const Home = () => {
   const coffees = useLoaderData();
+  const { user, signOutUser } = use(AuthContext);
   return (
     <div>
       <div
@@ -23,9 +25,23 @@ const Home = () => {
           <button className="rancho-regular btn bg-[#E3B577]">
             Learn More
           </button>
-          <Link to="/login" className="rancho-regular btn bg-[#E3B577] ml-2">
-            Login
-          </Link>
+          {user ? (
+            <Link
+              onClick={() => signOutUser()}
+              className="rancho-regular btn bg-[#E3B577] ml-2"
+            >
+              Logout
+            </Link>
+          ) : (
+            <Link to="/login" className="rancho-regular btn bg-[#E3B577] ml-2">
+              Login
+            </Link>
+          )}
+          {user && (
+            <Link to="/users" className="rancho-regular btn bg-[#E3B577] ml-2">
+              Users
+            </Link>
+          )}
         </div>
       </div>
       <div>

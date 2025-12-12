@@ -8,6 +8,7 @@ import SignIn from "../signIn/SignIn";
 import SignOut from "../signOut/SignOut";
 import Users from "../users/Users";
 import Login from "../signIn/Login";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -47,7 +48,11 @@ export const router = createBrowserRouter([
       {
         path: "/users",
         loader: () => fetch("http://localhost:5000/users"),
-        Component: Users,
+        element: (
+          <PrivateRoutes>
+            <Users></Users>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "login",

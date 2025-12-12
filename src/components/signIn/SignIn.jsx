@@ -9,7 +9,7 @@ const SignIn = () => {
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then((result) => {
-        console.log(result);
+        console.log(result.user);
       })
       .catch((error) => console.log(error));
   };
